@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:my_todo_app/add_task.dart';
 import 'package:my_todo_app/starred_task_page.dart';
 import 'package:my_todo_app/task_page.dart';
 
@@ -14,11 +15,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Widget showSheet(BuildContext context) {
-    return Container(
-      child: const Center(
-        child: Text("Hi, Emmanuel"),
-      ),
-    );
+    return const AddTaskSheet();
   }
 
   Screen selectedScreen = Screen.starredTask;

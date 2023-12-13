@@ -45,9 +45,13 @@ class AddTaskSheet extends StatelessWidget {
                       size: 35,
                       color: Colors.blue,
                     )),
-                const Text(
-                  "Save",
-                  style: TextStyle(fontSize: 20),
+                Spacer(),
+                Padding(
+                  padding: const EdgeInsets.only(right: 20),
+                  child: const Text(
+                    "Save",
+                    style: TextStyle(fontSize: 20),
+                  ),
                 ),
               ]),
             ],

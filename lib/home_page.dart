@@ -53,7 +53,10 @@ class _HomePageState extends State<HomePage> {
                             showScreen = false;
                           });
                         },
-                        icon: Icon(Icons.star))),
+                        icon: Icon(Icons.star,
+                            color: (selectedScreen == Screen.starredTask)
+                                ? Colors.blue
+                                : Colors.black))),
               ),
               const SizedBox(
                 width: 10,
@@ -88,8 +91,8 @@ class _HomePageState extends State<HomePage> {
               ),
               TextButton.icon(
                   onPressed: () {},
-                  icon: Icon(Icons.add),
-                  label: Text(
+                  icon: const Icon(Icons.add),
+                  label: const Text(
                     "New list",
                     style: TextStyle(fontSize: 16),
                   ))
@@ -101,23 +104,46 @@ class _HomePageState extends State<HomePage> {
           showScreen ? const MyTaskPage() : const StarredTaskPage(),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        shape: CircleBorder(),
-        onPressed: () {},
-        child: Icon(Icons.add),
+      floatingActionButton: SizedBox(
+        height: 70,
+        child: FittedBox(
+          child: FloatingActionButton(
+            shape: CircleBorder(),
+            onPressed: () {},
+            child: const Icon(
+              Icons.add,
+              size: 40,
+            ),
+          ),
+        ),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
-          shape: CircularNotchedRectangle(),
+          height: 95,
+          shape: const CircularNotchedRectangle(),
           notchMargin: 10.0,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              IconButton(
-                onPressed: () {},
-                icon: Icon(Icons.list),
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20.0),
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.list,
+                    size: 35,
+                  ),
+                ),
               ),
-              IconButton(onPressed: () {}, icon: Icon(Icons.more_vert))
+              Padding(
+                padding: const EdgeInsets.only(bottom: 20),
+                child: IconButton(
+                    onPressed: () {},
+                    icon: const Icon(
+                      Icons.more_vert,
+                      size: 35,
+                    )),
+              )
             ],
           )),
     );

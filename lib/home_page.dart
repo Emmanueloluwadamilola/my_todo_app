@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:my_todo_app/add_task.dart';
+import 'package:my_todo_app/add_task_screen.dart';
 import 'package:my_todo_app/starred_task_page.dart';
-import 'package:my_todo_app/task_page.dart';
+import 'package:my_todo_app/task_list_page.dart';
 
 enum Screen { starredTask, allTask }
 
@@ -15,11 +15,16 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   Widget showSheet(BuildContext context) {
-    return const AddTaskSheet();
+    return SingleChildScrollView(
+      child: Container(
+        padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+        child: const AddTaskSheet(),
+      ),
+    );
   }
 
-  Screen selectedScreen = Screen.starredTask;
-  bool showScreen = false;
+  Screen selectedScreen = Screen.allTask;
+  bool showScreen = true;
 
   @override
   Widget build(BuildContext context) {
@@ -116,7 +121,7 @@ class _HomePageState extends State<HomePage> {
           child: FloatingActionButton(
             shape: const CircleBorder(),
             onPressed: () {
-              showModalBottomSheet(context: context, builder: showSheet);
+              showModalBottomSheet(context: context, isScrollControlled: true, builder: showSheet);
             },
             child: const Icon(
               Icons.add,

@@ -19,11 +19,14 @@ class AddTaskSheet extends StatelessWidget {
           padding: const EdgeInsets.only(bottom: 10, left: 20, top: 7),
           child: Column(
             children: [
-              const TextField(
-                autofocus: true,
-                keyboardType: TextInputType.text,
-                decoration: InputDecoration(
-                    border: InputBorder.none, hintText: ("New Task")),
+              const Padding(
+                padding: EdgeInsets.only(left: 7),
+                child: TextField(
+                  autofocus: true,
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                      border: InputBorder.none, hintText: ("New Task")),
+                ),
               ),
               Row(children: [
                 IconButton(
@@ -45,12 +48,14 @@ class AddTaskSheet extends StatelessWidget {
                       size: 35,
                       color: Colors.blue,
                     )),
-                Spacer(),
-                Padding(
-                  padding: const EdgeInsets.only(right: 20),
-                  child: const Text(
-                    "Save",
-                    style: TextStyle(fontSize: 20),
+                const Spacer(),
+                const Padding(
+                  padding: EdgeInsets.only(right: 20),
+                  child: InkWell(
+                    child: Text(
+                      "Save",
+                      style: TextStyle(fontSize: 20),
+                    ),
                   ),
                 ),
               ]),
